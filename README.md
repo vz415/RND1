@@ -7,7 +7,7 @@ RND1: Scaling Diffusion Language Models
 ![???](https://github.com/user-attachments/assets/c2c54f94-a7f5-4b76-987d-f15de4efaef6)
 
 
-This repository contains an inference harness for Radical Numerics Diffusion 1 (RND1), an experimental diffusion language model. RND1-Base-0910 is a 30B‑parameter sparse Mixture‑of‑Experts model with 3B active parameters per token, converted from an autoregressive base (Qwen3-30B-A3B) via continual pretraining on 500B tokens. 
+This repository contains an inference harness for Radical Numerics Diffusion 1 (RND1), an experimental diffusion language model. RND1-Base-0910 is a 30B‑parameter sparse Mixture‑of‑Experts model with 3B active parameters per token, converted from an autoregressive base (Qwen3-30B-A3B) via continual pretraining on 500B tokens.
 
 We release RND1 models to catalyze further research on inference and post-training of DLMs.
 
@@ -17,7 +17,7 @@ For more details, see:
 
 **Report:** https://www.radicalnumerics.ai/assets/rnd1_report.pdf
 
-**🤗:** https://huggingface.co/radicalnumerics/RND1-Base-0910 
+**🤗:** https://huggingface.co/radicalnumerics/RND1-Base-0910
 
 **Models:**
  * **RND1-Base-0910**: first base model in the RND1 family. It has not been post-trained for specific usage.
@@ -63,11 +63,12 @@ python demo_rnd_generation.py --top_k 50 --temperature 0.7 --prompt "Explain how
   - `completion`: For text continuation (no prefix added)
 - `--max_new_tokens`: Number of new tokens to generate (default: 256)
 - `--num_steps`: Diffusion denoising steps (default: 256)
-- `--temperature`: Sampling temperature, 0.0 for greedy (default: 0.0)
+- `--temperature`: Sampling temperature, 0.0 for greedy (default: 0.01)
 - `--top_k`: Top-k filtering - keeps only k most likely tokens (works with greedy and sampling)
 - `--top_p`: Nucleus filtering - keeps tokens with cumulative probability ≤ p (works with greedy and sampling)
 - `--moe_backend`: Choose backend: hf, vllm, sglang, flashinfer (default: hf)
 - `--no_viz`: Disable visualization
+- `--add_eos_at_end`: Add End of Sequence (EOS) token at the end of the sequence; useful to force the model to come to a coherent end (default: False)
 
 ## Python API
 
